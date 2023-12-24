@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+Check data :<p th:text="${ob}">Student Data</p>
+
+
+  <table>
+        <tr>
+            <th>Roll</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="student : ${show}">
+            <td th:text="${student.roll}">Roll</td>
+            <td th:text="${student.name}">Name</td>
+            <td th:text="${student.address}">Address</td>
+            <td>
+                <a th:href="@{'/delete/' + ${student.id}}">Delete</a>
+                
+                <a th:href="@{'/update/' + ${student.id}}">Update</a>
+                
+            </td>
+        </tr>
+    </table>
+
+<table>
+        <tr>
+            <th>Roll</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        <tr th:each="student : ${searchob}">
+            <td th:text="${student.roll}">Roll</td>
+            <td th:text="${student.name}">Name</td>
+            <td th:text="${student.address}">Address</td>
+            
+              <td>
+                <a th:href="@{'/delete/' + ${student.id}}">Delete</a>
+                
+                <a th:href="@{'/update/' + ${student.id}}">Update</a>
+                
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

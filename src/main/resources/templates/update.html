@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Roll</th>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    <tr th:each="student : ${student}">
+        <td th:text="${student.roll}">Roll</td>
+        <td th:text="${student.name}">Name</td>
+        <td th:text="${student.address}">Address</td>
+    </tr>
+</table>
+
+
+
+
+
+<form th:action="@{/updatee}" method="post" th:object="${student}">
+    <label>Roll: </label>
+    <input type="hidden" th:field="*{id}" />
+    <span th:text="*{id}"></span><br/>
+    
+      <label>Roll: </label>
+    <input type="text" th:field="*{roll}" /><br/>
+    
+
+    <label>Name: </label>
+    <input type="text" th:field="*{name}" /><br/>
+
+    <label>Address: </label>
+    <input type="text" th:field="*{address}" /><br/>
+
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
